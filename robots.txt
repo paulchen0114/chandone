@@ -1,0 +1,12 @@
+User's request for the contents of the file: /mysite/mysite/robots.txt
+
+User's specification for the robots.txt file:
+
+User's project structure indicates that the robots.txt file should provide instructions for web crawlers.
+
+Here is the content for the robots.txt file:
+
+User-agent: *
+Disallow: /sitemap.xml
+
+Allow: /index.html
