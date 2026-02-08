@@ -232,3 +232,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const page = pathToPage(location.pathname);
   loadShellAndPage(page).catch(console.error);
 });
+
+function showContactForm() {
+  const success = document.getElementById('successMsg');
+  const form = document.getElementById('contactForm');
+  if (success) success.classList.add('hidden');
+  if (form) form.classList.remove('hidden');
+  if (typeof initApp === 'function') initApp(); // re-bind handlers if needed
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.showContactForm = showContactForm;
