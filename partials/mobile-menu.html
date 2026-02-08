@@ -1,0 +1,22 @@
+<!-- 手機版側邊選單 -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white flex flex-col md:hidden hidden">
+        <div class="flex justify-between items-center p-6 border-b border-slate-50">
+            <div class="flex items-center gap-2">
+                <img src="images/IMG_7919.PNG" alt="ChanDone Logo" class="h-8 rounded" onerror="this.src='https://ui-avatars.com/api/?name=CD&background=2563eb&color=fff'">
+                <span class="font-bold text-xl">ChanDone</span>
+            </div>
+            <button onclick="toggleMobileMenu()" class="text-3xl text-slate-400 hover:text-slate-900">&times;</button>
+        </div>
+        <div class="flex flex-col p-8 gap-6 text-2xl font-bold text-slate-800">
+            <a href="#" onclick="toggleMobileMenu(false); navigateTo('home'); return false;" class="flex items-center justify-between">首頁 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
+            <a href="#" onclick="toggleMobileMenu(false); navigateTo('services'); return false;" class="flex items-center justify-between">服務項目 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
+            <a href="#" onclick="toggleMobileMenu(false); navigateTo('process'); return false;" class="flex items-center justify-between">合作流程 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
+            <a href="#" onclick="toggleMobileMenu(false); navigateTo('contact'); return false;" class="flex items-center justify-between">聯絡諮詢 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
+        </div>
+        <div class="mt-auto p-8 bg-slate-50">
+            <p class="text-sm text-slate-500 mb-4">有急件需求嗎？</p>
+            <a href="https://line.me/ti/p/wyVWQa260A" class="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-line text-xl"></i> LINE 即時私訊
+            </a>
+        </div>
+    </div>

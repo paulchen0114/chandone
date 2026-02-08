@@ -1,0 +1,26 @@
+<!-- 導覽列 -->
+    <nav id="navbar" class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 sm:gap-3 cursor-pointer group" onclick="navigateTo('home')">
+                <img src="images/IMG_7919.PNG" alt="ChanDone Logo" class="logo-img rounded shadow-sm group-hover:scale-105 transition" onerror="this.src='https://ui-avatars.com/api/?name=CD&background=2563eb&color=fff'">
+                <span class="text-lg sm:text-xl font-bold tracking-tight">ChanDone<span class="text-blue-600">.</span></span>
+            </div>
+
+            <!-- 桌面版導覽 -->
+            <div class="hidden md:flex gap-8 lg:gap-10 font-medium text-slate-600">
+                <a href="#" onclick="navigateTo('home'); return false;" class="nav-link active" data-page="home">首頁</a>
+                <a href="#" onclick="navigateTo('services'); return false;" class="nav-link" data-page="services">服務項目</a>
+                <a href="#" onclick="navigateTo('process'); return false;" class="nav-link" data-page="process">合作流程</a>
+                <a href="#" onclick="navigateTo('contact'); return false;" class="nav-link" data-page="contact">聯絡諮詢</a>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="javascript:void(0)" onclick="navigateTo('contact'); return false;" class="hidden sm:block bg-blue-600 text-white px-5 lg:px-7 py-2 rounded-full font-semibold hover:bg-blue-700 hover:shadow-lg transition-all active:scale-95 text-sm md:text-base">
+                    立即預約
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-600 text-xl p-2 hover:bg-slate-100 rounded-full transition">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+    </nav>

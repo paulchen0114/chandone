@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="G7AUFPgbxMQPzlZmWjoNFWT_5xiEA8uyWsK_JE0tuIg" />
-    
+
     <!-- 標準 SEO Meta Tags -->
     <title>ChanDone | 高雄網頁設計・客製化 Web 系統開發個人工作室</title>
-    <meta name="description" content="ChanDone Studio 提供專業全棧式 Web 開發、SEO 優化及第三方 API 整合服務。我們將您的創意「Change」轉化為「Done」，為企業打造極速、現代化的數位方案。立即預約諮詢！">
+    <meta name="description"
+        content="ChanDone Studio 提供專業全棧式 Web 開發、SEO 優化及第三方 API 整合服務。我們將您的創意「Change」轉化為「Done」，為企業打造極速、現代化的數位方案。立即預約諮詢！">
     <meta name="keywords" content="高雄網頁設計, 網頁開發, 客製化系統, SEO優化, API整合, ChanDone, 個人工作室">
     <meta name="author" content="ChanDone Studio">
 
@@ -28,347 +30,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden w-full">
 
     <!-- 背景裝飾 -->
     <div class="blob top-[-5%] left-[-10%] animate-pulse"></div>
     <div class="blob bottom-[20%] right-[-5%]"></div>
 
-    <!-- 導覽列 -->
-    <nav id="navbar" class="fixed w-full z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2 sm:gap-3 cursor-pointer group" onclick="navigateTo('home')">
-                <img src="images/IMG_7919.PNG" alt="ChanDone Logo" class="logo-img rounded shadow-sm group-hover:scale-105 transition" onerror="this.src='https://ui-avatars.com/api/?name=CD&background=2563eb&color=fff'">
-                <span class="text-lg sm:text-xl font-bold tracking-tight">ChanDone<span class="text-blue-600">.</span></span>
-            </div>
 
-            <!-- 桌面版導覽 -->
-            <div class="hidden md:flex gap-8 lg:gap-10 font-medium text-slate-600">
-                <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link active" data-page="home">首頁</a>
-                <a href="javascript:void(0)" onclick="navigateTo('services')" class="nav-link" data-page="services">服務項目</a>
-                <a href="javascript:void(0)" onclick="navigateTo('process')" class="nav-link" data-page="process">合作流程</a>
-                <a href="javascript:void(0)" onclick="navigateTo('contact')" class="nav-link" data-page="contact">聯絡諮詢</a>
-            </div>
+    <!-- placeholders for shared partials -->
+    <div id="shared-navbar"></div>
+    <div id="shared-mobile-menu"></div>
 
-            <div class="flex items-center gap-2 sm:gap-4">
-                <a href="javascript:void(0)" onclick="navigateTo('contact')" class="hidden sm:block bg-blue-600 text-white px-5 lg:px-7 py-2 rounded-full font-semibold hover:bg-blue-700 hover:shadow-lg transition-all active:scale-95 text-sm md:text-base">
-                    立即預約
-                </a>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-600 text-xl p-2 hover:bg-slate-100 rounded-full transition">
-                    <i class="fa-solid fa-bars-staggered"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- page content will be injected here -->
+    <div id="page-container"></div>
 
-    <!-- 手機版側邊選單 -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white flex flex-col md:hidden">
-        <div class="flex justify-between items-center p-6 border-b border-slate-50">
-            <div class="flex items-center gap-2">
-                <img src="images/IMG_7919.PNG" alt="ChanDone Logo" class="h-8 rounded" onerror="this.src='https://ui-avatars.com/api/?name=CD&background=2563eb&color=fff'">
-                <span class="font-bold text-xl">ChanDone</span>
-            </div>
-            <button onclick="toggleMobileMenu()" class="text-3xl text-slate-400 hover:text-slate-900">&times;</button>
-        </div>
-        <div class="flex flex-col p-8 gap-6 text-2xl font-bold text-slate-800">
-            <a href="javascript:void(0)" onclick="navigateTo('home'); toggleMobileMenu()" class="flex items-center justify-between">首頁 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
-            <a href="javascript:void(0)" onclick="navigateTo('services'); toggleMobileMenu()" class="flex items-center justify-between">服務項目 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
-            <a href="javascript:void(0)" onclick="navigateTo('process'); toggleMobileMenu()" class="flex items-center justify-between">合作流程 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
-            <a href="javascript:void(0)" onclick="navigateTo('contact'); toggleMobileMenu()" class="flex items-center justify-between">聯絡諮詢 <i class="fa-solid fa-chevron-right text-sm text-slate-300"></i></a>
-        </div>
-        <div class="mt-auto p-8 bg-slate-50">
-            <p class="text-sm text-slate-500 mb-4">有急件需求嗎？</p>
-            <a href="https://line.me/ti/p/wyVWQa260A" class="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2">
-                <i class="fa-brands fa-line text-xl"></i> LINE 即時私訊
-            </a>
-        </div>
-    </div>
+    <div id="shared-footer"></div>
 
-    <!-- 頁面內容容器 -->
-    <main class="pt-20 md:pt-24 min-h-screen w-full">
-        
-        <!-- 首頁視圖 (Home View) -->
-        <section id="view-home" class="page-view active">
-            <header class="py-12 md:py-20 px-4 sm:px-6">
-                <div class="max-w-7xl mx-auto">
-                    <div class="flex flex-col lg:flex-row items-center gap-12">
-                        <!-- 文案區 -->
-                        <div class="lg:w-3/5 text-center lg:text-left">
-                            <div class="inline-flex items-center gap-2 py-1.5 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs sm:text-sm font-bold mb-6">
-                                ChanDone 個人工作室：2026 專案預約中
-                            </div>
-                            <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-slate-900">
-                                讓技術成就創意 <br>
-                                最專業的 <span class="gradient-text">數位實踐方案</span>
-                            </h1>
-                            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light">
-                                專注於全棧式 Web 開發與自動化業務整合。 <br class="hidden md:block">
-                                我們不只是寫代碼，更是您品牌數位化的推手。
-                            </p>
-                            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                <button onclick="navigateTo('contact')" class="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-xl shadow-slate-200">
-                                    啟動我的專案
-                                </button>
-                                <button onclick="navigateTo('services')" class="bg-white border border-slate-200 text-slate-600 px-10 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all">
-                                    查看服務項目
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- 品牌故事/理念區 (新加入) -->
-                        <div class="lg:w-2/5 reveal">
-                            <div class="story-card p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-white">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-10 h-1 bg-blue-600 rounded-full"></div>
-                                    <h2 class="text-xl font-bold uppercase tracking-widest text-blue-600">Our Story</h2>
-                                </div>
-                                <h3 class="text-2xl font-bold mb-4 text-slate-800">關於 ChanDone 的誕生</h3>
-                                <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
-                                    <p>
-                                        <span class="font-bold text-slate-900">ChanDone</span> 意為 <span class="text-blue-600 font-bold">"Change" + "Done"</span>。
-                                    </p>
-                                    <p>
-                                        在數位轉型的浪潮中，許多精彩的創意往往因為技術門檻而止步於想像。工作室的創立，源自於一個簡單的初心：幫助企業與個人將「想要改變（Change）」的念頭，轉化為「確實完成（Done）」的成果。
-                                    </p>
-                                    <p>
-                                        我們相信技術不應該是冰冷的邏輯，而是實現溫度的工具。透過深度的溝通與精準的執行，我們確保每一個專案不只是「上線」，更是「落地生根」。
-                                    </p>
-                                </div>
-                                <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-4">
-                                    <img src="images/IMG_7919.PNG" class="w-10 h-10 rounded-full grayscale opacity-50" alt="Founder" onerror="this.src='https://ui-avatars.com/api/?name=CD&background=2563eb&color=fff'">
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-400">FOUNDER & DEVELOPER</p>
-                                        <p class="font-bold text-slate-800">ChanDone Studio Team</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </section>
-
-        <!-- 服務視圖 (Services View) -->
-        <section id="view-services" class="page-view">
-            <div class="py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
-                <div class="text-center mb-12 md:mb-20 reveal">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-5">核心服務項目</h2>
-                    <p class="text-slate-500 text-sm md:text-base">跳過代理商，直接與開發者溝通，確保技術細節與商業邏輯完美對接。</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    <!-- 1. 全棧式 Web 開發 -->
-                    <div class="reveal p-8 md:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 md:mb-8">
-                            <i class="fa-solid fa-laptop-code text-xl md:text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">全棧式 Web 開發</h3>
-                        <p class="text-slate-600 text-sm md:text-base leading-relaxed">從 UI 設計到後端架構，打造現代化、極速且具備 SEO 優勢的官方網站與內部系統。</p>
-                    </div>
-                    <!-- 2. 客製化 Web 應用 -->
-                    <div class="reveal p-8 md:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="w-12 h-12 md:w-14 md:h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 md:mb-8">
-                            <i class="fa-solid fa-rocket text-xl md:text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">客製化 Web 應用</h3>
-                        <p class="text-slate-600 text-sm md:text-base leading-relaxed">使用前端現代技術（如 React/Next.js），為您打造獨一無二且符合業務邏輯的專屬系統。</p>
-                    </div>
-                    <!-- 3. SEO 與效能優化 -->
-                    <div class="reveal p-8 md:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 md:mb-8">
-                            <i class="fa-solid fa-gauge-high text-xl md:text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">SEO 與效能優化</h3>
-                        <p class="text-slate-600 text-sm md:text-base leading-relaxed">優化搜尋引擎排名，提升網站載入速度與核心指標（Core Web Vitals），有效增加用戶轉化率。</p>
-                    </div>
-                    <!-- 4. 第三方服務整合 -->
-                    <div class="reveal p-8 md:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="w-12 h-12 md:w-14 md:h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6 md:mb-8">
-                            <i class="fa-solid fa-layer-group text-xl md:text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">第三方服務整合</h3>
-                        <p class="text-slate-600 text-sm md:text-base leading-relaxed">串接 LINE、Slack 或 Discord 等通訊 API，自動化您的業務流程，讓系統與客戶溝通無縫接軌。</p>
-                    </div>
-                    <!-- 5. 響應式 UI/UX 設計 -->
-                    <div class="reveal p-8 md:p-10 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 lg:col-span-2">
-                        <div class="w-12 h-12 md:w-14 md:h-14 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-6 md:mb-8">
-                            <i class="fa-solid fa-mobile-screen-button text-xl md:text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">響應式 UI/UX 設計</h3>
-                        <p class="text-slate-600 text-sm md:text-base leading-relaxed">以用戶為中心，確保您的網站在手機、電腦及平板上都有完美的顯示效果，提供一致且流暢的互動體驗。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 流程視圖 (Process View) -->
-        <section id="view-process" class="page-view py-16 px-4 sm:px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">透明化的合作流程</h2>
-                    <p class="text-slate-500">從初步溝通到長期營運，我們始終與您並肩前行。</p>
-                </div>
-
-                <div class="space-y-12">
-                    <!-- 步驟 1 -->
-                    <div class="process-step reveal">
-                        <div class="step-number">1</div>
-                        <h3 class="text-xl font-bold mb-2">需求訪談與方案規劃</h3>
-                        <p class="text-slate-600">深入了解您的業務需求，提供專業的開發建議與技術架構規劃，並給予透明的報價方案。</p>
-                    </div>
-
-                    <!-- 步驟 2 -->
-                    <div class="process-step reveal">
-                        <div class="step-number">2</div>
-                        <h3 class="text-xl font-bold mb-2">UI/UX 設計與開發實作</h3>
-                        <p class="text-slate-600">進行視覺設計與前端後端開發。我們採用敏捷開發模式，讓您能隨時掌握進度並進行調整。</p>
-                    </div>
-
-                    <!-- 步驟 3 (測試與維運) -->
-                    <div class="process-step reveal">
-                        <div class="step-number">3</div>
-                        <h3 class="text-xl font-bold mb-2">測試、營運交付與長期支援</h3>
-                        <p class="text-slate-600 mb-4">在上線前進行嚴格的效能測試與多裝置兼容測試，確保穩定性。交付時提供完整的操作手冊。</p>
-                        <div class="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
-                            <h4 class="text-blue-700 font-bold mb-3 flex items-center gap-2">
-                                <i class="fa-solid fa-shield-halved"></i> 營運維護保障內容：
-                            </h4>
-                            <ul class="grid md:grid-cols-2 gap-3 text-sm text-slate-600">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> 定期伺服器監控與環境更新</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> 數據安全備份與日常維運</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> SEO 排名追蹤與優化建議</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> 緊急 Bug 修復與技術諮詢</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-20 text-center reveal">
-                    <button onclick="navigateTo('contact')" class="bg-blue-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl hover:bg-blue-700 transition">
-                        準備好了嗎？聯絡我們
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 聯絡視圖 (Contact View) -->
-        <section id="view-contact" class="page-view">
-            <div class="py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-                <div class="reveal">
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">準備好要 <br><span class="text-blue-600">ChanDone</span> 您的專案了嗎？</h2>
-                    <p class="text-lg md:text-xl text-slate-500 mb-8 leading-relaxed font-light">
-                        只要您有想法，技術部分交給我。歡迎填寫下方表單或直接透過 LINE 跟我討論。
-                    </p>
-                    
-                    <div class="space-y-8 md:space-y-10">
-                        <!-- 1. LINE 即時溝通 -->
-                        <div class="p-6 md:p-8 rounded-[2rem] bg-indigo-50 border border-indigo-100 flex flex-col sm:flex-row items-center gap-6 md:gap-8 shadow-sm">
-                            <div class="bg-white p-3 rounded-2xl shadow-sm flex-shrink-0">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://line.me/ti/p/wyVWQa260A" alt="LINE QR" class="w-24 h-24 md:w-32 md:h-32">
-                            </div>
-                            <div class="text-center sm:text-left">
-                                <h4 class="text-lg md:text-xl font-bold text-indigo-900 mb-2">LINE 即時溝通</h4>
-                                <p class="text-indigo-700/70 text-sm mb-4 leading-relaxed">最快在 2 小時內回覆，解決您的數位煩惱。</p>
-                                <a href="https://line.me/ti/p/wyVWQa260A" target="_blank" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition active:scale-95">
-                                    <i class="fa-brands fa-line text-xl"></i>
-                                    加我好友
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 2. Google Map 與 地址 -->
-                        <div>
-                            <div class="bg-white p-2 rounded-[2rem] shadow-2xl border border-white overflow-hidden h-[300px] mb-4">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.3582498779834!2d120.30605967605912!3d22.64135543018241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04ed92842c55%3A0xc3f8e5836c340d85!2zODAz6auY6ZuE5biC5LiJ5rCR5Y2A5ZCI5rGf6KGXMznomZ8!5e0!3m2!1szh-TW!2stw!4v1711280000000!5m2!1szh-TW!2stw" 
-                                    width="100%" 
-                                    height="100%" 
-                                    style="border:0; border-radius: 1.5rem;" 
-                                    allowfullscreen="" 
-                                    loading="lazy">
-                                </iframe>
-                            </div>
-                            <div class="flex items-start gap-4 px-2">
-                                <div class="w-10 h-10 rounded-xl bg-white shadow-sm flex-shrink-0 flex items-center justify-center text-blue-600">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div>
-                                    <h5 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">面談地址</h5>
-                                    <p class="text-slate-700 font-bold">高雄市三民區合江街39號</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3. 郵件聯繫 -->
-                        <div class="flex items-start gap-4 md:gap-5 px-2">
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white shadow-sm flex-shrink-0 flex items-center justify-center text-blue-600 text-lg">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">郵件聯繫</h5>
-                                <a href="mailto:ggfu0114@gmail.com" class="text-lg font-bold hover:text-blue-600 transition break-all">ggfu0114@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-
-                <!-- 表單區塊保持不變 -->
-                <div class="reveal" style="transition-delay: 200ms;">
-                    <div class="bg-white p-6 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-2xl shadow-slate-200/50">
-                        <form id="contactForm" class="space-y-5 md:space-y-6">
-                            <div class="space-y-2">
-                                <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">稱呼 / 公司名稱 *</label>
-                                <input type="text" id="form-name" name="name" required class="w-full px-5 py-3.5 md:py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:bg-white focus:border-blue-500 outline-none transition-all" placeholder="姓名或單位">
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
-                                <div class="space-y-2">
-                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">電子郵件 *</label>
-                                    <input type="email" id="form-email" name="email" required class="w-full px-5 py-3.5 md:py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:bg-white focus:border-blue-500 outline-none transition-all" placeholder="mail@example.com">
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">電話號碼</label>
-                                    <input type="tel" id="form-phone" name="phone" class="w-full px-5 py-3.5 md:py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:bg-white focus:border-blue-500 outline-none transition-all" placeholder="聯絡手機">
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">需求詳述</label>
-                                <textarea id="form-message" name="description" rows="4" class="w-full px-5 py-3.5 md:py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:bg-white focus:border-blue-500 outline-none transition-all" placeholder="描述您的專案需求..."></textarea>
-                            </div>
-                            <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-blue-700 transition-all shadow-lg active:scale-[0.98]">
-                                發送諮詢申請
-                            </button>
-                            <p id="errorMsg" class="hidden text-center text-red-500 text-sm font-medium mt-2"></p>
-                        </form>
-                        <div id="successMsg" class="hidden text-center py-8 md:py-12 px-4">
-                            <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-bold mb-3">發送成功！</h3>
-                            <p class="text-slate-500">ChanDone 已收到訊息，將儘快回覆。</p>
-                            <button onclick="location.reload()" class="mt-8 text-blue-600 font-bold hover:underline">返回表單</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 頁腳 -->
-    <footer class="py-12 md:py-16 border-t border-slate-100 bg-white w-full">
-        <div class="max-w-7xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
-            <div>
-                <div class="flex items-center gap-3 mb-4 justify-center md:justify-start">
-                    <img src="images/IMG_7919.PNG" alt="ChanDone Logo" class="h-6 rounded-sm shadow-sm" onerror="this.src='https://ui-avatars.com/api/?name=CD&background=2563eb&color=fff'">
-                    <span class="font-bold text-xl tracking-tight">ChanDone.</span>
-                </div>
-                <p class="text-slate-400 text-sm">© 2024-2025 ChanDone Studio. 個人工作室專注技術品質。</p>
-            </div>
-            <div class="flex gap-8">
-                <a href="mailto:ggfu0114@gmail.com" class="text-slate-400 hover:text-blue-600 transition text-2xl" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://line.me/ti/p/wyVWQa260A" target="_blank" class="text-slate-400 hover:text-emerald-600 transition text-2xl" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
-            </div>
-        </div>
-    </footer>
-
- 
 </body>
+
 </html>
