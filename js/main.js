@@ -1,3 +1,5 @@
+const API_KEY = 'default-api-key-456';
+
 function switchView(pageId) {
             const views = document.querySelectorAll('.page-view');
             const links = document.querySelectorAll('.nav-link');
@@ -107,7 +109,8 @@ function switchView(pageId) {
                   mode: 'cors',
                   headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-API-Key': API_KEY
                   },
                   body: JSON.stringify(payload),
                   signal: controller.signal
