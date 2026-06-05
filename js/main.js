@@ -95,7 +95,7 @@ function switchView(pageId) {
 
               try {
                 // use POST with JSON body (safer & better for CORS)
-                const baseUrl = 'https://mysite-e425.onrender.com/submit_form';
+                const baseUrl = 'https://grocery-496707.de.r.appspot.com/api/submit_form';
                 const payload = { name, email, phone, description };
 
                 // timeout support
